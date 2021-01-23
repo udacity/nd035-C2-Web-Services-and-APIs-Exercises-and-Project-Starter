@@ -56,8 +56,6 @@ public class CarControllerTest {
     @MockBean
     private MapsClient mapsClient;
 
-    private MediaType contentType = new MediaType("application", "hal+json", Charset.forName("UTF-8"));
-
     /**
      * Creates pre-requisites for testing, such as an example car.
      */
