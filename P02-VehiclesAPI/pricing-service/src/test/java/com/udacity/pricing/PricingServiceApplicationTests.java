@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -53,7 +54,7 @@ public class PricingServiceApplicationTests {
 		JSONObject json = new JSONObject(content.getContentAsString());
 
 		// get the price from the response and set the scale to 2
-		BigDecimal actual 	= new BigDecimal(json.getString("price")).setScale(2, );
+		BigDecimal actual 	= new BigDecimal(json.getString("price")).setScale(2, RoundingMode.HALF_UP);
 		//get the price from the pricingService
 		BigDecimal expected	= pricingService.getPrice(id).getPrice();
 
