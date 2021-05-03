@@ -95,7 +95,8 @@ public class CarService {
      */
     public void delete(Long id) {
         /*
-         *   Find the car by ID from the `repository` if it exists.
+         *   Find the car by ID from the `repository` if it exists
+         *   and delete it.
          *   If it does not exist, throw a CarNotFoundException
          */
         if (repository.findById(id).isPresent()) {
