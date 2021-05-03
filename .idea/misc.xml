@@ -6,6 +6,7 @@
         <option value="$PROJECT_DIR$/P02-VehiclesAPI/boogle-maps/pom.xml" />
         <option value="$PROJECT_DIR$/P02-VehiclesAPI/vehicles-api/pom.xml" />
         <option value="$PROJECT_DIR$/P02-VehiclesAPI/pricing-service/pom.xml" />
+        <option value="$PROJECT_DIR$/P02-VehiclesAPI/EurekaServer/pom.xml" />
       </list>
     </option>
   </component>
