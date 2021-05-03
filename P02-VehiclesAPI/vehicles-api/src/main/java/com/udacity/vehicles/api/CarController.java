@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/cars")
 @ApiResponses(value = {
         @ApiResponse(code=400, message = "This is a bad request, please follow the API documentation for the proper request format."),
-        @ApiResponse(code=500, message = "The server is down. Please make sure that the all other microservices are running.")
+        @ApiResponse(code=500, message = "The server is down. Please make sure that all other microservices are running.")
 })
 class CarController {
 
