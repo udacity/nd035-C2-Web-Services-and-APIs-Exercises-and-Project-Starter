@@ -97,10 +97,9 @@ public class CarControllerTest {
      */
     @Test
     public void listCars() throws Exception {
-        mvc.perform(get("/cars"))
+        mvc.perform(get("/cars").contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(CONTENT_TYPE))
-                .andExpect(content().json("[]"));
+                .andExpect(content().contentType(CONTENT_TYPE));
 
         verify(carService, times(1)).list();
     }
@@ -113,7 +112,7 @@ public class CarControllerTest {
     public void findCar() throws Exception {
         Car car = getCar();
         Long id = car.getId();
-        mvc.perform(get("/cars/{id}", id)) // "/cars/" + String.valueOf(id)
+        mvc.perform(get("/cars/{id}", id))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(CONTENT_TYPE));
 
@@ -129,9 +128,9 @@ public class CarControllerTest {
     public void deleteCar() throws Exception {
         Car car = getCar();
         Long id = car.getId();
-        mvc.perform(delete("/cars/{id}", id))
-                .andExpect(status().isNoContent())
-                .andExpect(content().contentType(CONTENT_TYPE));
+        mvc.perform(delete("/cars/{id}", id)
+                    .content(json.write(car).getJson()))
+                .andExpect(status().isNoContent());
 
         verify(carService, times(1)).delete(id);
     }
@@ -142,6 +141,8 @@ public class CarControllerTest {
      */
     private Car getCar() {
         Car car = new Car();
+        // Car is missing an ID
+        car.setId(randomID());
         car.setLocation(new Location(40.730610, -73.935242));
         Details details = new Details();
         Manufacturer manufacturer = new Manufacturer(101, "Chevrolet");
@@ -159,4 +160,16 @@ public class CarControllerTest {
         car.setCondition(Condition.USED);
         return car;
     }
+
+    /**
+     * Creates a random ID
+     * @return a Long between 1 and 19 (included)
+     */
+    public Long randomID() {
+        // generate a random ID between 1 and 19
+        long leftLimit = 1L;
+        long rightLimit = 19L;
+        return leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
+    }
+
 }
