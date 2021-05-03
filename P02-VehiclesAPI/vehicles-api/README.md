@@ -13,15 +13,7 @@ view of vehicle details including price and address.
 - MVC Test
 - Automatic model mapping
 
-## Instructions
-
-#### TODOs
-
-- Implement the `TODOs` within the `CarService.java` and `CarController.java`  files
-- Add additional tests to the `CarControllerTest.java` file based on the `TODOs`
-- Implement API documentation using Swagger
-
-#### Run the Code
+## Run the Code
 
 To properly run this application you need to start the Orders API and
 the Service API first.
