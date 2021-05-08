@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="vehicles-api" />
+        <module name="pricing-service" />
+        <module name="boogle-maps" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="boogle-maps" target="11" />
+      <module name="pricing-service" target="11" />
+      <module name="vehicles-api" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="boogle-maps" options="-parameters" />
+      <module name="pricing-service" options="-parameters" />
+      <module name="vehicles-api" options="-parameters" />
+    </option>
+  </component>
+</project>

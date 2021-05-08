@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/P02-VehiclesAPI/boogle-maps/boogle-maps.iml" filepath="$PROJECT_DIR$/P02-VehiclesAPI/boogle-maps/boogle-maps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/nd035-C2-Web-Services-and-APIs-Exercises-and-Project-Starter.iml" filepath="$PROJECT_DIR$/.idea/nd035-C2-Web-Services-and-APIs-Exercises-and-Project-Starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/P02-VehiclesAPI/pricing-service/pricing-service.iml" filepath="$PROJECT_DIR$/P02-VehiclesAPI/pricing-service/pricing-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/P02-VehiclesAPI/vehicles-api/vehicles-api.iml" filepath="$PROJECT_DIR$/P02-VehiclesAPI/vehicles-api/vehicles-api.iml" />
+    </modules>
+  </component>
+</project>
