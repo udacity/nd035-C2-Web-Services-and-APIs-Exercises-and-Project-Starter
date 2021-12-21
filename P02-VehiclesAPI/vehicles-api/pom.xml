@@ -87,13 +87,14 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>3.0.0</version>
+            <version>2.7.0</version>
         </dependency>
+
 
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>3.0.0</version>
+            <version>2.7.0</version>
         </dependency>
 
 
@@ -105,29 +106,29 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-codegen-plugin</artifactId>
-                <version>3.3.2</version>
-                <executions>
-                    <execution>
-                        <id>generate-sources</id>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <sourceRoot>${project.build.directory}/generated-sources/cxf
-                            </sourceRoot>
-                            <wsdlOptions>
-                                <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/price.wsdl</wsdl>
-                                </wsdlOption>
-                            </wsdlOptions>
-                        </configuration>
-                        <goals>
-                            <goal>wsdl2java</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.cxf</groupId>-->
+<!--                <artifactId>cxf-codegen-plugin</artifactId>-->
+<!--                <version>3.3.2</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>generate-sources</id>-->
+<!--                        <phase>generate-sources</phase>-->
+<!--                        <configuration>-->
+<!--                            <sourceRoot>${project.build.directory}/generated-sources/cxf-->
+<!--                            </sourceRoot>-->
+<!--                            <wsdlOptions>-->
+<!--                                <wsdlOption>-->
+<!--                                    <wsdl>${basedir}/src/main/resources/price.wsdl</wsdl>-->
+<!--                                </wsdlOption>-->
+<!--                            </wsdlOptions>-->
+<!--                        </configuration>-->
+<!--                        <goals>-->
+<!--                            <goal>wsdl2java</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 
