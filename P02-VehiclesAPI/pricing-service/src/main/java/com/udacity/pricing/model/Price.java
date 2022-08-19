@@ -2,10 +2,7 @@ package com.udacity.pricing.model;
 
 import java.math.BigDecimal;
 
-<<<<<<< HEAD:P02-VehiclesAPI/pricing-service/src/main/java/com/udacity/pricing/model/Price.java
-=======
 import javax.persistence.Column;
->>>>>>> 6f051c4d82f75b7205d648d1df1565eeb6b9c3bb:P02-VehiclesAPI/pricing-service/src/main/java/com/udacity/pricing/domain/price/Price.java
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,15 +15,10 @@ import javax.persistence.Id;
 public class Price {
 
 	@Id
-<<<<<<< HEAD:P02-VehiclesAPI/pricing-service/src/main/java/com/udacity/pricing/model/Price.java
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-=======
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name="CURRENCY")
->>>>>>> 6f051c4d82f75b7205d648d1df1565eeb6b9c3bb:P02-VehiclesAPI/pricing-service/src/main/java/com/udacity/pricing/domain/price/Price.java
     private String currency;
 	
 	@Column(name="PRICE")
