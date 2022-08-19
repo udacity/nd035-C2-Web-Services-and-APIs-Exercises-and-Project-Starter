@@ -2,6 +2,7 @@ package com.udacity.pricing.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,10 +15,16 @@ import javax.persistence.Id;
 public class Price {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name="CURRENCY")
     private String currency;
+	
+	@Column(name="PRICE")
     private BigDecimal price;
+    
+	@Column(name="VEHICLE_ID")
     private Long vehicleId;
 
     public Price() {
