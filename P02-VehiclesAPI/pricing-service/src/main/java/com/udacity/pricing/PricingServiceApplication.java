@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  */
 @SpringBootApplication(exclude = {
     DataSourceAutoConfiguration.class})
+// issue: if I add autoconfiguration for JPA than I got an error, so I have excluded it here, but in this way pricing service doesn't contain any data
 public class PricingServiceApplication {
 
     public static void main(String[] args) {
