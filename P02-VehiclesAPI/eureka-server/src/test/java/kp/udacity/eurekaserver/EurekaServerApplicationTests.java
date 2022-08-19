@@ -1,14 +1,13 @@
-package com.udacity.pricing;
-
+package kp.udacity.eurekaserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class PricingServiceApplicationTests {
+class EurekaServerApplicationTests {
 
 	@Test
-	public void contextLoads() {
+	void contextLoads() {
 	}
 
 }
