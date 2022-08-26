@@ -36,8 +36,19 @@ public class Details {
     private Integer productionYear;
 
     private String externalColor;
+    
+    
+    
+    public Details() {
+	}
 
-    public String getBody() {
+	public Details(@NotBlank String body, @NotBlank String model, @NotNull Manufacturer manufacturer) {
+		this.body = body;
+		this.model = model;
+		this.manufacturer = manufacturer;
+	}
+
+	public String getBody() {
         return body;
     }
 
