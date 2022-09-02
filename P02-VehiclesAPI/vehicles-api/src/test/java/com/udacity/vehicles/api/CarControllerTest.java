@@ -132,16 +132,20 @@ public class CarControllerTest {
      */
     @Test
     public void updateCar() throws Exception {
-    	Car newCar = new Car();
+    	Car newCar = getCar();
+    	newCar.setId(1L);;
     	newCar.setCondition(Condition.NEW);
-    	
-    	mvc.perform( MockMvcRequestBuilders
-    		      .put("/cars/{id}", 1)
-    		      .content(new ObjectMapper().writeValueAsString((newCar)))
+    	Details newDetails = newCar.getDetails();
+    	newDetails.setModel("Camaro");
+    	newCar.setDetails(newDetails);
+    	mvc.perform(MockMvcRequestBuilders
+    		      .put("/cars/{id}",1)
+    		      .content(new ObjectMapper().writeValueAsString(newCar))
     		      .contentType(MediaType.APPLICATION_JSON)
     		      .accept(MediaType.APPLICATION_JSON))
     		      .andExpect(status().isOk())
-    		      .andExpect(MockMvcResultMatchers.jsonPath("$.condition").value("NEW"));
+    		      .andExpect(MockMvcResultMatchers.jsonPath("$.condition").value("NEW"))
+    	          .andExpect(MockMvcResultMatchers.jsonPath("$.details.model").value("Camaro"));
     }
 
     /**
@@ -183,4 +187,5 @@ public class CarControllerTest {
         car.setCondition(Condition.USED);
         return car;
     }
+   
 }
