@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.udacity.vehicles.client.maps.MapsClient;
 import com.udacity.vehicles.client.prices.PriceClient;
+import com.udacity.vehicles.domain.Location;
 import com.udacity.vehicles.domain.car.Car;
 import com.udacity.vehicles.domain.car.CarRepository;
 
@@ -75,8 +76,8 @@ public class CarService {
          * Note: The Location class file also uses @transient for the address,
          * meaning the Maps service needs to be called each time for the address.
          */
-
-
+        Location location = this.mapsClient.getAddress(car.getLocation());
+        car.setLocation(location);
         return car;
     }
 
