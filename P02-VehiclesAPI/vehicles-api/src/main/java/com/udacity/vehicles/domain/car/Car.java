@@ -1,8 +1,7 @@
 package com.udacity.vehicles.domain.car;
 
-import com.udacity.vehicles.domain.Condition;
-import com.udacity.vehicles.domain.Location;
 import java.time.LocalDateTime;
+
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -13,9 +12,14 @@ import javax.persistence.Id;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.udacity.vehicles.domain.Condition;
+import com.udacity.vehicles.domain.Location;
 
 /**
  * Declares the Car class, related variables and methods.
@@ -49,7 +53,16 @@ public class Car {
     @Transient
     private String price;
 
-    public Long getId() {
+	public Car() {
+	}
+
+	public Car(@NotNull Condition condition, @Valid Details details) {
+		super();
+		this.condition = condition;
+		this.details = details;
+	}
+
+	public Long getId() {
         return id;
     }
 
@@ -104,4 +117,10 @@ public class Car {
     public void setPrice(String price) {
         this.price = price;
     }
+
+	@Override
+	public String toString() {
+		return "Car [id=" + id + ", createdAt=" + createdAt + ", modifiedAt=" + modifiedAt + ", condition=" + condition
+				+ ", details=" + details + ", location=" + location + ", price=" + price + "]";
+	}
 }

@@ -1,7 +1,5 @@
 package com.udacity.vehicles;
 
-import com.udacity.vehicles.domain.manufacturer.Manufacturer;
-import com.udacity.vehicles.domain.manufacturer.ManufacturerRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -11,11 +9,21 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.udacity.vehicles.domain.Condition;
+import com.udacity.vehicles.domain.car.Car;
+import com.udacity.vehicles.domain.car.CarRepository;
+import com.udacity.vehicles.domain.car.Details;
+import com.udacity.vehicles.domain.manufacturer.Manufacturer;
+import com.udacity.vehicles.domain.manufacturer.ManufacturerRepository;
+
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 /**
  * Launches a Spring Boot application for the Vehicles API,
  * initializes the car manufacturers in the database,
  * and launches web clients to communicate with maps and pricing.
  */
+@EnableSwagger2
 @SpringBootApplication
 @EnableJpaAuditing
 public class VehiclesApiApplication {
@@ -37,6 +45,14 @@ public class VehiclesApiApplication {
             repository.save(new Manufacturer(102, "Ford"));
             repository.save(new Manufacturer(103, "BMW"));
             repository.save(new Manufacturer(104, "Dodge"));
+        };
+    }
+    
+    @Bean
+    CommandLineRunner createCar(CarRepository repository, ManufacturerRepository manuRepository) {
+        return args -> {
+            repository.save(new Car(Condition.NEW, new Details("body", "model", manuRepository.getOne(100))));
+            repository.save(new Car(Condition.USED, new Details("test", "old model", manuRepository.getOne(101))));
         };
     }
 
