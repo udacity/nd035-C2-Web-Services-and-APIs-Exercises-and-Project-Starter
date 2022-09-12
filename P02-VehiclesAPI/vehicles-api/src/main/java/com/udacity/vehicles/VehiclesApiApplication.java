@@ -16,11 +16,14 @@ import com.udacity.vehicles.domain.car.Details;
 import com.udacity.vehicles.domain.manufacturer.Manufacturer;
 import com.udacity.vehicles.domain.manufacturer.ManufacturerRepository;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 /**
  * Launches a Spring Boot application for the Vehicles API,
  * initializes the car manufacturers in the database,
  * and launches web clients to communicate with maps and pricing.
  */
+@EnableSwagger2
 @SpringBootApplication
 @EnableJpaAuditing
 public class VehiclesApiApplication {

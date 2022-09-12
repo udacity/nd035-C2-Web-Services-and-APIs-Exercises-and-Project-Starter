@@ -4,6 +4,7 @@ import static org.hamcrest.Matchers.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -97,9 +98,6 @@ public class CarControllerTest {
          *   the whole list of vehicles. This should utilize the car from `getCar()`
          *   below (the vehicle will be the first in the list).
          */
-//    	@Value("${server.port}")
-//    	String port;
-    	
 		mvc.perform(MockMvcRequestBuilders.get("/cars").contentType(MediaType.APPLICATION_JSON_UTF8)
 				.accept(MediaType.APPLICATION_JSON_UTF8))
 				.andExpect(status().isOk())
@@ -138,8 +136,9 @@ public class CarControllerTest {
     	Details newDetails = newCar.getDetails();
     	newDetails.setModel("Camaro");
     	newCar.setDetails(newDetails);
-    	mvc.perform(MockMvcRequestBuilders
-    		      .put("/cars/{id}",1)
+    	given(carService.save(any())).willReturn(newCar);
+    	mvc.perform(
+    		      put("/cars/{id}",1)
     		      .content(new ObjectMapper().writeValueAsString(newCar))
     		      .contentType(MediaType.APPLICATION_JSON)
     		      .accept(MediaType.APPLICATION_JSON))

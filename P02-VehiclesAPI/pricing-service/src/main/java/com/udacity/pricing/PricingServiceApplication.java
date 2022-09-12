@@ -8,8 +8,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * Creates a Spring Boot Application to run the Pricing Service.
  * TODO: Convert the application from a REST API to a microservice.
  */
-@SpringBootApplication(exclude = {
-    DataSourceAutoConfiguration.class})
+@SpringBootApplication
+//(exclude = {
+//    DataSourceAutoConfiguration.class})
 // issue: if I add autoconfiguration for JPA than I got an error, so I have excluded it here, but in this way pricing service doesn't contain any data
 public class PricingServiceApplication {
 
