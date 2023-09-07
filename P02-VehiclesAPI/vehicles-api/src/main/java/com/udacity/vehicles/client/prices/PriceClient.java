@@ -1,5 +1,6 @@
 package com.udacity.vehicles.client.prices;
 
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -14,9 +15,12 @@ public class PriceClient {
     private static final Logger log = LoggerFactory.getLogger(PriceClient.class);
 
     private final WebClient client;
+    private final ModelMapper mapper;
 
-    public PriceClient(WebClient pricing) {
+    public PriceClient(WebClient pricing, ModelMapper mapper) {
         this.client = pricing;
+        this.mapper = mapper;
+
     }
 
     // In a real-world application we'll want to add some resilience
@@ -25,20 +29,20 @@ public class PriceClient {
     // do a request every time
     /**
      * Gets a vehicle price from the pricing client, given vehicle ID.
+     * 
      * @param vehicleId ID number of the vehicle for which to get the price
      * @return Currency and price of the requested vehicle,
-     *   error message that the vehicle ID is invalid, or note that the
-     *   service is down.
+     *         error message that the vehicle ID is invalid, or note that the
+     *         service is down.
      */
     public String getPrice(Long vehicleId) {
         try {
             Price price = client
                     .get()
                     .uri(uriBuilder -> uriBuilder
-                            .path("services/price/")
+                            .path("/prices/" + vehicleId)
                             .queryParam("vehicleId", vehicleId)
-                            .build()
-                    )
+                            .build())
                     .retrieve().bodyToMono(Price.class).block();
 
             return String.format("%s %s", price.getCurrency(), price.getPrice());
