@@ -4,9 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Entity;
 import java.math.BigDecimal;
-
 
 /**
  * Represents the price of a given vehicle, including currency.
@@ -14,11 +12,11 @@ import java.math.BigDecimal;
 @Entity
 public class Price {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long vehicleId;
     private String currency;
     private BigDecimal price;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long vehicleId;
 
     public Price() {
     }
