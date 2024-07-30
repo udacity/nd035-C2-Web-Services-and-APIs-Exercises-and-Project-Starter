@@ -81,7 +81,7 @@ class CarController {
          *   Update the first line as part of the above implementing.
          */
         try {
-            Resource<Car> resource = assembler.toResource(new Car());
+            Resource<Car> resource = assembler.toResource(carService.save(car));
             return ResponseEntity.created(new URI(resource.getId().expand().getHref())).body(resource);
         }
         catch (CarNotFoundException e) {
