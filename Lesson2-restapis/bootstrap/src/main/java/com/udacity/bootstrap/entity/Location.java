@@ -1,6 +1,6 @@
 package com.udacity.bootstrap.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 public class Location {
