@@ -11,18 +11,19 @@ import io.swagger.v3.oas.models.info.License;
 
 
 @Configuration
-public class SwaggerConfig {    
+public class SwaggerConfig {
+    
 
     @Bean
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
-                .group("location-api")
-                .pathsToMatch("/public/**")
+                .group("location")
+                .pathsToMatch("/location/**")
                 .build();
     }
 
   @Bean
-  public OpenAPI springShopOpenAPI() {
+  public OpenAPI locationOpenAPI() {
       return new OpenAPI()
               .info(new Info().title("Location API")
               .description("This API returns a list of airport locations.")     
