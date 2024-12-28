@@ -1,7 +1,7 @@
 package com.udacity.vehicles.domain.manufacturer;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 /**
  * Declares class to hold car manufacturer information.
