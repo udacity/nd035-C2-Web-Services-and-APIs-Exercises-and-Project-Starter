@@ -79,9 +79,8 @@ class CarController {
          */
         EntityModel<Car> resource = assembler.toModel(new Car());
 
-        URI location = linkTo(methodOn(CarController.class).get(resource.getContent().getId())).toUri(); 
-        return ResponseEntity.created(location).body(resource);
-        
+        //Note: There will be error on this line till above TODOs are implemented
+        return ResponseEntity.created(new URI(resource.getId().expand().getHref())).body(resource);     
 
         
     }
